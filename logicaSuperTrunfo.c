@@ -1,43 +1,76 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+#include <string.h>
 
 int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    char codigoA[20], codigoB[20];
+    char cidadeA[50], cidadeB[50];
+    int populacaoA, populacaoB;
+    float areaA, areaB, pibA, pibB;
+    char continuar;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    do {
+        // Cadastro das Cartas:
+        // Solicita os dados da primeira cidade
+        printf("Digite o código da cidade 1: ");
+        scanf("%s", codigoA);
+        printf("Digite o nome da cidade 1: ");
+        scanf("%s", cidadeA);
+        printf("Digite a população da cidade 1: ");
+        scanf("%d", &populacaoA);
+        printf("Digite a área da cidade 1 (em km²): ");
+        scanf("%f", &areaA);
+        printf("Digite o PIB da cidade 1: ");
+        scanf("%f", &pibA);
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+        // Solicita os dados da segunda cidade
+        printf("\nDigite o código da cidade 2: ");
+        scanf("%s", codigoB);
+        printf("Digite o nome da cidade 2: ");
+        scanf("%s", cidadeB);
+        printf("Digite a população da cidade 2: ");
+        scanf("%d", &populacaoB);
+        printf("Digite a área da cidade 2 (em km²): ");
+        scanf("%f", &areaB);
+        printf("Digite o PIB da cidade 2: ");
+        scanf("%f", &pibB);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+        // Comparação de Cartas:
+        printf("\n--- Resultados da Comparação ---\n");
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+        // Comparação por população
+        if (populacaoA > populacaoB) {
+            printf("A cidade %s tem maior população (%d).\n", cidadeA, populacaoA);
+        } else if (populacaoA < populacaoB) {
+            printf("A cidade %s tem maior população (%d).\n", cidadeB, populacaoB);
+        } else {
+            printf("As cidades têm a mesma população (%d).\n", populacaoA);
+        }
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+        // Comparação por área
+        if (areaA > areaB) {
+            printf("A cidade %s tem uma área maior (%.2f km²).\n", cidadeA, areaA);
+        } else if (areaA < areaB) {
+            printf("A cidade %s tem uma área maior (%.2f km²).\n", cidadeB, areaB);
+        } else {
+            printf("As cidades têm a mesma área (%.2f km²).\n", areaA);
+        }
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+        // Comparação por PIB
+        if (pibA > pibB) {
+            printf("A cidade %s tem um PIB maior (R$ %.2f).\n", cidadeA, pibA);
+        } else if (pibA < pibB) {
+            printf("A cidade %s tem um PIB maior (R$ %.2f).\n", cidadeB, pibB);
+        } else {
+            printf("As cidades têm o mesmo PIB (R$ %.2f).\n", pibA);
+        }
 
+        // Pergunta se o usuário deseja comparar mais cidades
+        printf("\nDeseja comparar mais cidades? (s/n): ");
+        scanf(" %c", &continuar);
+
+    } while (continuar == 's' || continuar == 'S');
+
+    printf("Obrigado por usar o sistema de comparação de cidades!\n");
     return 0;
 }
